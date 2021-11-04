@@ -40,4 +40,16 @@ class HashGeneratorService
         }
         return $int;
     }
+
+    public function isDecoded(string $hash, array $tokens = []): bool
+    {
+        $tokens = array_flip($tokens ?: config('hash.tokens'));
+        foreach (str_split($hash) as $i => $token)
+        {
+            if(!isset($tokens[$token])) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
