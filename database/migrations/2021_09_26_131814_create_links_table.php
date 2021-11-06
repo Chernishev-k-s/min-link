@@ -15,8 +15,8 @@ class CreateLinksTable extends Migration
     {
         Schema::create('links', function (Blueprint $table) {
             $table->id();
-            $table->string('hash');
-            $table->string('link',2048);
+            $table->string('url',2048);
+            $table->string('hash')->nullable();
             $table->integer('expired_use')->nullable();
             $table->dateTime('expired_at')->nullable();
             $table->timestamps();

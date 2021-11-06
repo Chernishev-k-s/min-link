@@ -13,4 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\WelcomeController::class,'index']);
+Route::get('/', [\App\Http\Controllers\LinkController::class, 'index'])->name('link.index');
+Route::post('/create', [\App\Http\Controllers\LinkController::class, 'store'])->name('link.create');
+Route::any('/{hash}', [\App\Http\Controllers\LinkController::class, 'show'])->name('link.show');
+Route::get('/{hash}/info', [\App\Http\Controllers\LinkController::class, 'show_info'])->name('link.show.info');

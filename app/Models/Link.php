@@ -11,6 +11,7 @@ class Link extends Model
 
     protected $fillable = [
         'hash',
+        'url',
         'expired_use',
         'expired_at',
     ];
